@@ -39,4 +39,4 @@ SWEEP workflows can be invoked via **API**. For more information, please visit o
 ### References.
 
 [1] [Germline short variant discovery (SNPs + Indels)](https://gatk.broadinstitute.org/hc/en-us/articles/360035535932-Germline-short-variant-discovery-SNPs-Indels-)
-[2][A global reference for human genetic variation](https://www.nature.com/articles/nature15393)
+[2] [A global reference for human genetic variation](https://www.nature.com/articles/nature15393)
