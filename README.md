@@ -2,7 +2,7 @@
 
 This SWEEP workflow (termed as JVCF from here onwards) represents the Joint Variant Calling Workflow based on GATK Best Practices [#1].
 
-The GATK best-practice joint variant calling pipeline was implemented as a SWEEP workflow comprising 18 **tasks**. The workflow starts by setting per-sample metadata for the entire population required to orchestrate subsequent tasks is prepared and propagated onwards. Tasks 2-6 are then run in parallel, preparing onetime index files from the reference sequence and known SNP/indel files. 
+The GATK best-practice joint variant calling pipeline was implemented as a SWEEP workflow comprising 18 [**tasks**](/tasks). The workflow starts by setting per-sample metadata for the entire population required to orchestrate subsequent tasks is prepared and propagated onwards. Tasks 2-6 are then run in parallel, preparing onetime index files from the reference sequence and known SNP/indel files. 
 The remainder of the workflow tasks rely on the successful completion of each predecessor and are run sequentially. Tasks 7-13 are scattered by sample, and produce QC'd GVCF files from the paired-end read files for each sample. Task 14 takes inventory of all GVCF files that have been successfully produced by task 12 and defines the separate task variables for task 15, which is scattered by chromosome. 
 Joint variant calling is performed for chromosomes 1-22 in separate container tasks, and the VCF outputs of each task are stitched together by the **Picard** GatherVCFs function in task 17. The final output of the workflow is a single joint VCF file that contains SNP and indel information for each sample included in the workflow. 
 The final output of the workflow is a single joint VCF file that contains SNP and indel information for each sample included in the workflow. 
@@ -12,7 +12,7 @@ the shell scripts with  a sample invocation that you can use can be found in the
  
 ### Our Use Case 
 
-* Joint variant calling of 1000 Genomes [2] data
+* Joint variant calling of 1000 Genomes [2] data with [62 individuals](/1k_EUR_AFR_Subset.csv) 
 
 ### Implementation 
 
