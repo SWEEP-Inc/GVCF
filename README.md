@@ -20,8 +20,8 @@ the shell scripts with  a sample invocation that you can use can be found in the
 
 ### Setup
 
-* Push the base image to your <yourDockerHubId>, once pushed, update the repository location in all your task Docker compose files
-* s3://<yourS3bucket> needs to be changed to a S3 bucket that can be used as a scratch area
+* Push the base image to your **yourDockerHubId**, once pushed, update the repository location in all your task Docker compose files
+* s3://**yourS3bucket** needs to be changed to a S3 bucket that can be used as a scratch area
 * Base docker compose file has placeholders for AWS credentials that needs to be replaced, namely <yourAWSAccessKey> & <yourAWSSecretAccessKey>
 
 ### Open Issues 
