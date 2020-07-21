@@ -12,8 +12,8 @@ the shell scripts with  a sample invocation that you can use can be found in the
  
 ### Our Use Case 
 
-* Joint variant calling of 1000 Genomes [2] data with [62 individuals](/1k_EUR_AFR_Subset.csv). The files are part of AWS Open data initiative, and are located at
-[Phase 3 1K](http://1000genomes.s3.amazonaws.com/phase3/data/).  
+* Joint variant calling of 1000 Genomes [2] data with [62 individuals](/Task0/all_eur_afr_pruned.csv). The files are part of AWS Open data initiative, and are located at
+[http://1000genomes.s3.amazonaws.com/phase3/data/](http://1000genomes.s3.amazonaws.com/phase3/data/).  
 
 ### Implementation 
 
@@ -22,7 +22,7 @@ the shell scripts with  a sample invocation that you can use can be found in the
 ### Setup
 
 * Push the base image to your **yourDockerHubId**, once pushed, update the repository location in all your task Docker compose files
-* In the shell scripts, a S3 bucket is used as a handoff between the tasks. So, whereever s3://**yourS3bucket** appears in te shell script, that needs to be changed to a S3 bucket you have read-write access to.
+* In the shell scripts, a S3 bucket is used as a handoff between the tasks. So, whereever s3://**yourS3bucket** appears in te shell script, it needs to be changed to a S3 bucket you have read-write access to.
 * Base docker compose file has placeholders for AWS credentials that needs to be replaced, namely <yourAWSAccessKey> & <yourAWSSecretAccessKey>
 
 ### Open Issues 
@@ -37,6 +37,10 @@ We have run it via AWS amd Azure. Instructions in this repository is for AWS, bu
 ### Running without SWEEP Platform 
 
 Each of the tasks mentioned in the workflow can be run independently using **Docker**.
+
+### Running on SWEEP Platform 
+
+Please sign-up at https://sweep.run
 
 ### API (Python )
 
