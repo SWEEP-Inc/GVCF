@@ -12,7 +12,8 @@ the shell scripts with  a sample invocation that you can use can be found in the
  
 ### Our Use Case 
 
-* Joint variant calling of 1000 Genomes [2] data with [62 individuals](/1k_EUR_AFR_Subset.csv) 
+* Joint variant calling of 1000 Genomes [2] data with [62 individuals](/1k_EUR_AFR_Subset.csv). The files are part of AWS Open data initiative, and are located at
+[Phase 3 1K](http://1000genomes.s3.amazonaws.com/phase3/data/).  
 
 ### Implementation 
 
@@ -21,12 +22,12 @@ the shell scripts with  a sample invocation that you can use can be found in the
 ### Setup
 
 * Push the base image to your **yourDockerHubId**, once pushed, update the repository location in all your task Docker compose files
-* s3://**yourS3bucket** needs to be changed to a S3 bucket that can be used as a scratch area
+* In the shell scripts, a S3 bucket is used as a handoff between the tasks. So, whereever s3://**yourS3bucket** appears in te shell script, that needs to be changed to a S3 bucket you have read-write access to.
 * Base docker compose file has placeholders for AWS credentials that needs to be replaced, namely <yourAWSAccessKey> & <yourAWSSecretAccessKey>
 
 ### Open Issues 
 
-* SWEEP on AWS/Azure limits to 64 individuals.
+* SWEEP on AWS/Azure limits to 62 individuals.
 * Sex chromosomes are excluded in the original runs.
 
 ### Benchmarking
