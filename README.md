@@ -13,7 +13,7 @@ the shell scripts with  a sample invocation that you can use can be found in the
 ### Our Use Case 
 
 * Joint variant calling of 1000 Genomes [2] data with [62 individuals](/tasks/Task0/all_eur_afr_pruned.csv). The files are part of AWS Open data initiative, and are located at
-[http://1000genomes.s3.amazonaws.com/phase3/data/](http://1000genomes.s3.amazonaws.com/phase3/data/).  
+[http://1000genomes.s3.amazonaws.com/phase3/data/](http://1000genomes.s3.amazonaws.com/phase3/data/).  A DAG for 14 individual run can be found here [](/dag_genomics.pdf).
 
 ### Implementation 
 
@@ -36,7 +36,7 @@ We have run it via AWS amd Azure. Instructions in this repository is for AWS, bu
 
 ### Running without SWEEP Platform 
 
-Each of the tasks mentioned in the workflow can be run independently using **Docker**.
+Each of the tasks mentioned in the workflow can be run independently using **Docker**. For function tasks, the task can be run by invoking the main python file using Python version 3.6 or higher; all the dependeent files are in the corresponding folder as well.
 
 ### Running on SWEEP Platform 
 
