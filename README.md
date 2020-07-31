@@ -13,7 +13,7 @@ the shell scripts with  a sample invocation that you can use can be found in the
 ### Our Use Case 
 
 * Joint variant calling of 1000 Genomes [2] data with [62 individuals](/tasks/Task0/all_eur_afr_pruned.csv). The files are part of AWS Open data initiative, and are located at
-[http://1000genomes.s3.amazonaws.com/phase3/data/](http://1000genomes.s3.amazonaws.com/phase3/data/).  A DAG for 14 individual run can be found here [](/dag_genomics.pdf).
+[http://1000genomes.s3.amazonaws.com/phase3/data/](http://1000genomes.s3.amazonaws.com/phase3/data/).  A DAG for 14 individual run can be found here [DAG 14 individuals](/dag_genomics.pdf).
 
 ### Implementation 
 
