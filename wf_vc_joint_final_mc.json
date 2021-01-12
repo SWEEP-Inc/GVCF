@@ -1,0 +1,93 @@
+{  "workflow_id": "genomicsworkflowwithtasksoptimzedjointfg_mc",
+    "config" : {"max_task_concurrency" : 512, "max_task_runtime" : 90000},
+  "providers": [],
+  "tasks": [
+      {"id" : 1, "function_name" : "define_individuals_v2", "successors": [2,3,4,5,6,7],
+        "properties": {
+          "position": "start"
+          }
+        },
+      {"id" : 2, "container_def_id" : "task_1_fg_optimised", "successors": [7]},
+      {"id" : 3, "container_def_id" : "task_2_fg_optimised", "successors": [7]},
+      {"id" : 4, "container_def_id" : "task_3_fg_optimised", "successors": [7]},
+      {"id" : 5, "container_def_id" : "task_4_optimised", "successors": [7]},
+      {"id" : 6, "container_def_id" : "task_5_optimised", "successors": [7]},
+      {"id" : 7, "container_def_id" : "task_6b_fg_optimised", "successors": [8],
+        "properties": {
+          "dynamic_multiplicity" : "predecessor_outputs['1']['num_inds']",
+          "scatter" : "predecessor_outputs['1']['env_vars']",
+          "environment": "predecessor_outputs['1']['env_vars']",
+          "static_output" : "predecessor_outputs['1']['env_vars']"
+          }
+        },
+
+      {"id" : 8, "container_def_id" : "task_7b_fg_optimised", "successors": [9],
+      "properties" : {
+        "ignore_error":true,
+        "follow" : 7,
+        "environment": "predecessor_outputs['7']['static_output']",
+        "static_output" : "predecessor_outputs['7']['static_output']"}},
+
+      {"id" : 9, "container_def_id" : "task_8b_fg_optimised", "successors": [10],
+      "properties" : {
+        "ignore_error":true,
+        "follow" : 7,
+        "environment": "predecessor_outputs['8']['static_output']",
+        "static_output" : "predecessor_outputs['8']['static_output']"}},
+
+      {"id" : 10, "container_def_id" : "task_9b_fg_optimised", "successors": [11],
+      "properties" : {
+        "ignore_error":true,
+        "follow" : 7,
+        "environment": "predecessor_outputs['9']['static_output']",
+        "static_output" : "predecessor_outputs['9']['static_output']"}},
+
+      {"id" : 11, "container_def_id" : "task_10b_fg_optimised", "successors": [12],
+      "properties" : {
+        "ignore_error":true,
+        "follow" : 7,
+        "environment": "predecessor_outputs['10']['static_output']",
+        "static_output" : "predecessor_outputs['10']['static_output']"}},
+
+      {"id" : 12, "container_def_id" : "task_11b_gvcf_fg_optimised", "successors": [13],
+      "properties" : {
+        "ignore_error":true,
+        "follow" : 7,
+        "environment": "predecessor_outputs['11']['static_output']",
+        "static_output" : "predecessor_outputs['11']['static_output']"}},
+    {"id" : 13, "function_name" : "PreGVCF",  "successors": [14],
+      "properties" : {
+        "follow" : 7,
+        "environment": "predecessor_outputs['12']['static_output']",
+        "static_output" : "predecessor_outputs['12']['static_output']"}},
+
+      {"id" : 14, "function_name" : "collectGVCFs",  "successors": [15],
+      "properties" : {}},
+
+
+      {"id" : 15, "container_def_id" : "task_12b_gvcf_fg_optimised", "successors": [16],
+        "properties": {
+          "ignore_error":true,
+          "dynamic_multiplicity" : "predecessor_outputs['14']['joint_vc_slices']",
+          "scatter" : "predecessor_outputs['14']['joint_vc_slice_vars']",
+          "environment" : "predecessor_outputs['14']['joint_vc_slice_vars']"
+          }
+        },
+
+
+      {"id" : 16, "function_name" : "collectVCFs", "successors": [17],
+        "properties" : {
+          "environment" : "predecessor_outputs['14']['joint_vc_slice_vars'][0]"
+          }
+      },
+
+      {"id" : 17, "container_def_id" : "task_13_gvcf_fg_optimised", "successors": [18],
+        "properties" : {
+          "environment" : "predecessor_outputs['14']['joint_vc_slice_vars'][0]"
+          }
+      },
+
+      {"id" : 18, "function_name" : "collectJointVariantGenomicsWorkflow",  "successors": [],
+      "properties" : {}}
+    ]
+}
