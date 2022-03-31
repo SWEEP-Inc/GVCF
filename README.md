@@ -1,3 +1,8 @@
+### Published work
+
+Article Source: Evaluation of serverless computing for scalable execution of a joint variant calling workflow 
+John A, Muenzen K, Ausmees K (2021) Evaluation of serverless computing for scalable execution of a joint variant calling workflow. PLOS ONE 16(7): e0254363. https://doi.org/10.1371/journal.pone.0254363
+
 ### Workflow Description
 
 This SWEEP workflow (termed as GVCF from here onwards) represents the Joint Variant Calling Workflow based on GATK Best Practices [#1].
